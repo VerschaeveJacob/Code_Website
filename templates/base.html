@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<nav>
+    <ul>
+        <li>AIR CHECK</li>
+        <li><a {% block dashboard %}{% endblock %} href="">Dashboard</a></li>
+        <li><a {% block grafiek %}{% endblock %} href="">Grafiek</a></li>
+        <li><a {% block informatie %}{% endblock %} href="">Informatie</a></li>
+        <li><a {% block uitloggen %}{% endblock %} href="">Uitloggen</a></li>
+    </ul>
+</nav>
+    {% block body %}
+
+    {% endblock %}
+<div style="height: 300px"></div>
+<footer>
+    <div class="contact">
+        <div class="contact_gegevens">
+            <div class="footer__titel">
+                <p>Contacteer Ons</p>
+            </div>
+            <p>Heb je een vraag, stuur ons een berichtje.</p>
+            <div class="contact_gegevens__telefoon">
+                <img src="{{ url_for('static', filename='images/telefoon_jpg_black.jpg') }}" alt="Icoon Telefoon" width="40px" height="40px">
+                <p>0479 72 53 42</p>
+            </div>
+            <div class="contact_gegevens__email">
+                <img src="{{ url_for('static', filename='images/email_png_white.png') }}" alt="" width="40px" height="40px">
+                <p>jacob.verschaeve@student.howest.be</p>
+            </div>
+            <div class="contact_gegevens__naarboven">
+                <img src="{{ url_for('static', filename='images/arrow.png') }}" alt="" width="40px" height="40px">
+                <a href="{% block naarboven %}{% endblock %}">Ga naar boven</a>
+            </div>
+        </div>
+        <div class="contact_form">
+            <form action="{{ url_for("index") }}" method="post">
+                <div class="form__naam">
+                    <input type="text" id="naam" name="naam" placeholder="Naam ..." required>
+                </div>
+
+                <div class="form__email">
+                    <input type="email" id="email" name="email" placeholder="Emailadres ..." required>
+                </div>
+
+                <div class="form__text">
+                    <textarea name="commentaar" id="commentaar" cols="31" rows="10" placeholder="Bericht ..." required></textarea>
+                </div>
+
+                <div class="form__submit">
+                    <input type="submit" value="Query verzenden">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="sitemap">
+        <div class="footer__titel">
+            <p>Account</p>
+        </div>
+        <a href="">Inloggen</a>
+        <a href="">Registreren</a>
+        <div class="copyright">
+            <p>© Copyright</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

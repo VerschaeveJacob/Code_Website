@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inloggen/Registreren - Air Check</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="background__inloggen">
+    <img src="{{ url_for('static', filename='images/inloggen.png') }}" alt="" width="100%">
+</div>
+<div class="box__inloggen">
+            <form action="{{ url_for("index") }}" method="post">
+                <div class="inloggen_form">
+
+                    <div class="inloggen_form__email">
+                        <label for="email">Emailadres</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="inloggen_form__wachtwoord">
+                        <label for="password">Wachtwoord</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="inloggen_checkbox_ingelogdblijven">
+                        <input type="checkbox" id="checkbox" name="ingelogd_blijven">
+                        <label for="checkbox">Ingelogd blijven</label>
+                    </div>
+                    <a href="">Wachtwoord vergeten?</a>
+                    <a href="">Nog geen account?</a>
+                    <div class="inloggen_form__submit">
+                        <input type="submit" value="Inloggen">
+                    </div>
+                </div>
+            </form>
+</div>
+<footer style="margin-top: -3px">
+    <div class="contact">
+        <div class="contact_gegevens">
+            <div class="footer__titel">
+                <p>Contacteer Ons</p>
+            </div>
+            <p>Heb je een vraag, stuur ons een berichtje.</p>
+            <div class="contact_gegevens__telefoon">
+                <img src="{{ url_for('static', filename='images/telefoon_jpg_black.jpg') }}" alt="Icoon Telefoon" width="40px" height="40px">
+                <p>0479 72 53 42</p>
+            </div>
+            <div class="contact_gegevens__email">
+                <img src="{{ url_for('static', filename='images/email_png_white.png') }}" alt="" width="40px" height="40px">
+                <p>jacob.verschaeve@student.howest.be</p>
+            </div>
+            <div class="contact_gegevens__naarboven">
+                <img src="{{ url_for('static', filename='images/arrow.png') }}" alt="" width="40px" height="40px">
+                <a href="{% block naarboven %}{% endblock %}">Ga naar boven</a>
+            </div>
+        </div>
+        <div class="contact_form">
+            <form action="{{ url_for("index") }}" method="post">
+                <div class="form__naam">
+                    <input type="text" id="naam" name="naam" placeholder="Naam ..." required>
+                </div>
+
+                <div class="form__email">
+                    <input type="email" id="email" name="email" placeholder="Emailadres ..." required>
+                </div>
+
+                <div class="form__text">
+                    <textarea name="commentaar" id="commentaar" cols="31" rows="10" placeholder="Bericht ..." required></textarea>
+                </div>
+
+                <div class="form__submit">
+                    <input type="submit" value="Query verzenden">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="sitemap">
+        <div class="footer__titel">
+            <p>Account</p>
+        </div>
+        <a href="">Inloggen</a>
+        <a href="">Registreren</a>
+        <div class="copyright">
+            <p>© Copyright</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
