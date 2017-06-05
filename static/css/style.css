@@ -257,8 +257,296 @@ li a:hover{
 .inloggen_form__submit{
     margin-top: 20px;
 }
+
 .inloggen_form__submit input{
     margin-left: 5%;
     width: 40%;
     height: 20px;
+}
+
+.sluit_box{
+    width: 30px;
+    height: 30px;
+    background-color: darkgray;
+    color: black;
+    float: right;
+    margin-top: 10px;
+    margin-right: 5%;
+    border-radius: 5px;
+}
+
+.sluit_box p{
+    margin: 0;
+    font-size: 20px;
+    padding-top: 2px;
+    padding-left: 7px;
+}
+
+.box__registreren h1{
+    font-size: 20px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 5%;
+}
+
+.box__nieuwwachtwoord h1{
+    font-size: 20px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 5%;
+}
+
+.registreren_form{
+    float: left;
+    margin-left: 5%;
+    font-size: 20px;
+    width: 90%;
+}
+
+.registreren_form__email{
+    display: flex;
+    flex-flow: column;
+    margin-top: 10px;
+}
+
+.registreren_form__email input{
+    margin-top: 5px;
+    height: 20px;
+}
+
+.registreren_form__wachtwoord{
+    display: flex;
+    flex-flow: column;
+    margin-top: 10px;
+}
+
+.registreren_form__wachtwoord input{
+    margin-top: 5px;
+    height: 20px;
+}
+
+.registreren_form__serienummer{
+    display: flex;
+    flex-flow: column;
+    margin-top: 10px;
+}
+
+.registreren_form__serienummer input{
+    margin-top: 5px;
+    height: 20px;
+}
+
+.registreren_form__serienummer__label a img{
+    margin: 0;
+    position: relative;
+    top: 4px;
+    padding-left: 15px;
+}
+
+.registreren_form__submit{
+    margin-top: 10px;
+}
+
+.registreren_form__submit input{
+    width: 100%;
+    height: 20px;
+}
+
+.box__registreren{
+    position: absolute;
+    top: 200px;
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 40%;
+    height: 360px;
+    background-color: lightgrey;
+    border-radius: 10px;
+}
+
+.box__nieuwwachtwoord{
+    position: absolute;
+    top: 285px;
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 40%;
+    height: 235px;
+    background-color: #9a9a9a;
+    border-radius: 10px;
+}
+
+.nieuwwachtwoord_form{
+    float: left;
+    margin-left: 5%;
+    font-size: 20px;
+    width: 90%;
+}
+
+.box__nieuwwachtwoord p{
+    margin-left: 5%;
+    margin-right: 5%;
+    float: left;
+}
+
+.nieuwwachtwoord_form__email{
+    display: flex;
+    flex-flow: column;
+    margin-top: 10px;
+}
+
+.nieuwwachtwoord_form__email input{
+    margin-top: 5px;
+    height: 20px;
+}
+
+.nieuwwachtwoord_form__submit{
+    margin-top: 10px;
+}
+
+.nieuwwachtwoord_form__submit input{
+    width: 100%;
+    height: 20px;
+}
+
+.nav_informatie{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.nav_informatie ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    margin-left: 35%;
+}
+
+.nav_informatie li{
+    padding: 0;
+    margin: 0;
+    height: 50px;
+    background-color: #3c3c3c;
+    width: 15%;
+}
+
+.nav_informatie a{
+    color: white;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 0;
+    padding-top: 16.5px;
+    height: 50px;
+}
+
+.go_back {
+    background-color: #3c3c3c;
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    float: left;
+    position: relative;
+    top: 30px;
+    left: 2%;
+}
+
+.go_back p{
+    font-size: 30px;
+    color: white;
+    margin: 0;
+    padding-top: 6px;
+    padding-left: 10px;
+}
+
+.informatie_wat {
+    padding: 0;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.informatie_wat img{
+    float: left;
+}
+
+.wat{
+    display: flex;
+    flex-flow: column;
+    margin-left: 50%;
+}
+
+.wat h1{
+    margin: 0;
+    padding: 0;
+}
+
+.wat p{
+    display: block;
+    margin: 2px;
+}
+
+.informatie_lijn p {
+    float: left;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    margin-left: 20%;
+}
+
+.informatie_richtlijnen{
+    float: left;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+}
+
+.informatie_richtlijnen table{
+    width: 100%;
+    background-color: lightgrey;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.informatie_richtlijnen table:last-child{
+    margin-bottom: 10px;
+}
+
+.border-right{
+    border-right: 1px solid black;
+    width: 130px;
+}
+
+.border-bottom{
+    border-bottom: 1px solid black;
+}
+
+.informatie_richtlijnen td{
+    padding: 5px;
+}
+
+.tips{
+    float: left;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+}
+
+.tips_tip{
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 10px;
+}
+
+.tips_titel{
+    width: 150px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}
+
+.tips_titel p{
+    text-align: center;
+    margin-top: 10px;
 }

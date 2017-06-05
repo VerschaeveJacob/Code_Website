@@ -2,23 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %} - Air Check{% endblock %}</title>
+    <title>Registreren - Air Check</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-<nav>
-    <ul>
-        <li>AIR CHECK</li>
-        <li><a {% block dashboard %}{% endblock %} href="">Dashboard</a></li>
-        <li><a {% block grafiek %}{% endblock %} href="">Grafiek</a></li>
-        <li><a {% block informatie %}{% endblock %} href="">Informatie</a></li>
-        <li><a {% block uitloggen %}{% endblock %} href="">Uitloggen</a></li>
-    </ul>
-</nav>
-    {% block body %}
-
-    {% endblock %}
-<footer>
+<div class="background__inloggen">
+    <img src="{{ url_for('static', filename='images/inloggen.png') }}" alt="" width="100%">
+</div>
+<div class="box__registreren">
+    <h1>Maak een Air Check-account aan</h1>
+    <a href="{{ url_for("index") }}"><div class="sluit_box"><p>X</p></div></a>
+            <form action="{{ url_for("index") }}" method="post">
+                <div class="registreren_form">
+                    <div class="registreren_form__email">
+                        <label for="email">Emailadres: *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="registreren_form__wachtwoord">
+                        <label for="password">Wachtwoord: *</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="registreren_form__wachtwoord">
+                        <label for="password_bevestigen">Wachtwoord bevestigen: *</label>
+                        <input type="password" id="password_bevestigen" name="password_bevestigen" required>
+                    </div>
+                    <div class="registreren_form__serienummer">
+                        <div class="registreren_form__serienummer__label">
+                            <label for="serienummer">Serienummer toestel: *</label><a href=""><img src="{{ url_for('static', filename='images/question_mark.png') }}" alt="" width="24px" height="24px"></a>
+                        </div>
+                        <input type="text" id="serienummer" name="serienummer" required>
+                    </div>
+                    <div class="registreren_form__submit">
+                        <input type="submit" value="Registreren">
+                    </div>
+                </div>
+            </form>
+</div>
+<footer style="margin-top: -3px">
     <div class="contact">
         <div class="contact_gegevens">
             <div class="footer__titel">
@@ -53,7 +73,7 @@
                 </div>
 
                 <div class="form__submit">
-                    <input type="submit" value="Versturen">
+                    <input type="submit" value="Verzenden">
                 </div>
             </form>
         </div>

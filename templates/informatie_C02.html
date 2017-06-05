@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Informatie C02
+{% endblock %}
+
+{% block informatie %}
+class="active"
+{% endblock %}
+
+{% block body %}
+    <div class="go_back"><p><</p></div>
+    <div class="nav_informatie">
+        <ul>
+            <li><a href="{{ url_for("informatie_CO2") }}">CO2</a></li>
+            <li><a href="{{ url_for("informatie_comfortniveau") }}">Comfortniveau</a></li>
+        </ul>
+    </div>
+
+    <div class="informatie_wat">
+        <img src="{{ url_for('static', filename='images/co2.png') }}" alt="" width="400px" height="400px">
+        <div class="wat">
+            <h1>Wat is CO2?</h1>
+            <p>CO2 (koolstofdioxide) is een natuurlijk gas dat ontstaat door ademhaling en verbranding. De atmosfeer bevat tegenwoordig ongeveer 0.04% (400ppm) koolstofdioxide.
+Het is een kleurloos en geurloos gas dat van nature in de aardatmosfeer voorkomt. Als de concentratie CO2 boven 3% (3000ppm) stijgt ervaren de personen in de ruimte ademhalingsmoeilijkheden.</p>
+        </div>
+    </div>
+    <div class="informatie_lijn">
+        <p>------------------------------------------------------------------------------------------------------------------</p>
+    </div>
+    <div class="informatie_richtlijnen">
+        <table>
+            <tr><td class="border-right"><img src="{{ url_for('static', filename='images/co2_tabel.png') }}" alt="" width="47px" height="30px"></td><td class="border-bottom">~ 450</td></tr>
+            <tr><td class="border-right">Zeer goed</td><td>Aangenaam en gezond niveau.</td></tr>
+        </table>
+
+        <table>
+            <tr><td class="border-right"><img src="{{ url_for('static', filename='images/co2_tabel.png') }}" alt="" width="47px" height="30px"></td><td class="border-bottom">451 ~ 700</td></tr>
+            <tr><td class="border-right">Goed</td><td>Nog steeds prima, niet perfect maar geeft geen problemen.</td></tr>
+        </table>
+
+        <table>
+            <tr><td class="border-right"><img src="{{ url_for('static', filename='images/co2_tabel.png') }}" alt="" width="47px" height="30px"></td><td class="border-bottom">1001 ~ 2000</td></tr>
+            <tr><td class="border-right">Matig</td><td>Matig tot slechte ventilatie, laag energieniveau en slechte concentratie.</td></tr>
+        </table>
+
+        <table>
+            <tr><td class="border-right"><img src="{{ url_for('static', filename='images/co2_tabel.png') }}" alt="" width="47px" height="30px"></td><td class="border-bottom">2001 ~</td></tr>
+            <tr><td class="border-right">Slecht</td><td>Slecht kortstondig verdraagbaar, schadelijk voor de gezondheid op lange termijn.</td></tr>
+        </table>
+    </div>
+    <div class="informatie_lijn">
+        <p>------------------------------------------------------------------------------------------------------------------</p>
+    </div>
+        <div class="tips">
+        <h1>Tips</h1>
+        <div class="tips_tip">
+            <div class="tips_titel"><p>Ventilatie</p></div>
+            <p>Ventilatie is verreweg de beste oplossing, de lucht buiten bevat slechts 380 tot 400ppm C02 en ventilatie verlaagt snel het C02 binnenshuis.</p>
+        </div>
+        <div class="tips_tip">
+            <div class="tips_titel"><p>Planten</p></div>
+            <p>Planten zoals cactus en sansevieria zetten ook ’s nachts nog CO2 om in zuurstof.</p>
+        </div>
+        <div class="tips_tip">
+            <div class="tips_titel"><p>Actieve kool</p></div>
+            <p>Actieve kool zoals in een luchtreiniger absorbeert gassen waaronder ook CO2.</p>
+        </div>
+    </div>
+{% endblock %}
+

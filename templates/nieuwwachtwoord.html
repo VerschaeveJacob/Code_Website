@@ -2,23 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %} - Air Check{% endblock %}</title>
+    <title>Wachtwoord vergeten - Air Check</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-<nav>
-    <ul>
-        <li>AIR CHECK</li>
-        <li><a {% block dashboard %}{% endblock %} href="">Dashboard</a></li>
-        <li><a {% block grafiek %}{% endblock %} href="">Grafiek</a></li>
-        <li><a {% block informatie %}{% endblock %} href="">Informatie</a></li>
-        <li><a {% block uitloggen %}{% endblock %} href="">Uitloggen</a></li>
-    </ul>
-</nav>
-    {% block body %}
-
-    {% endblock %}
-<footer>
+<div class="background__inloggen">
+    <img src="{{ url_for('static', filename='images/inloggen.png') }}" alt="" width="100%">
+</div>
+<div class="box__inloggen">
+            <form action="{{ url_for("index") }}" method="post">
+                <div class="inloggen_form">
+                    <div class="inloggen_form__email">
+                        <label for="email">Emailadres</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="inloggen_form__wachtwoord">
+                        <label for="password">Wachtwoord</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="inloggen_checkbox_ingelogdblijven">
+                        <input type="checkbox" id="checkbox" name="ingelogd_blijven">
+                        <label for="checkbox">Ingelogd blijven</label>
+                    </div>
+                    <a href="">Wachtwoord vergeten?</a>
+                    <a href="{{ url_for("registreer") }}">Nog geen account?</a>
+                    <div class="inloggen_form__submit">
+                        <input type="submit" value="Inloggen">
+                    </div>
+                </div>
+            </form>
+</div>
+<div class="box__nieuwwachtwoord">
+    <h1>Nieuw wachtwoord instellen</h1>
+    <a href="{{ url_for("index") }}"><div class="sluit_box"><p>X</p></div></a>
+    <p>Stuur je e-mailadres en je ontvangt een link waarmee je een nieuw wachtwoord kan instellen.</p>
+    <form action="{{ url_for("index") }}" method="post">
+        <div class="nieuwwachtwoord_form">
+            <div class="nieuwwachtwoord_form__email">
+                <label for="email">Emailadres</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="nieuwwachtwoord_form__submit">
+                <input type="submit" value="Versturen">
+            </div>
+        </div>
+    </form>
+</div>
+<footer style="margin-top: -3px">
     <div class="contact">
         <div class="contact_gegevens">
             <div class="footer__titel">
@@ -53,7 +83,7 @@
                 </div>
 
                 <div class="form__submit">
-                    <input type="submit" value="Versturen">
+                    <input type="submit" value="Verzenden">
                 </div>
             </form>
         </div>

@@ -8,6 +8,22 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/registreer')
+def registreer():
+    return render_template('registreren.html')
+
+@app.route('/nieuw_wachtwoord')
+def nieuw_wachtwoord():
+    return render_template('nieuwwachtwoord.html')
+
+@app.route('/informatieC02')
+def informatie_CO2():
+    return render_template('informatie_C02.html')
+
+@app.route('/informatie_Comfortniveau')
+def informatie_comfortniveau():
+    return render_template('informatie_comfortniveau.html')
+
 @app.context_processor
 def override_url_for():
     return dict(url_for=dated_url_for)
