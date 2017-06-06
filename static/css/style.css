@@ -550,3 +550,212 @@ li a:hover{
     text-align: center;
     margin-top: 10px;
 }
+
+.nav_dashboard{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.nav_dashboard ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    margin-left: 29%;
+}
+
+.nav_dashboard li{
+    padding: 0;
+    margin: 0;
+    height: 50px;
+    background-color: #3c3c3c;
+    width: 15%;
+}
+
+.nav_dashboard a{
+    color: white;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 0;
+    padding-top: 16.5px;
+    height: 50px;
+}
+
+.waarden{
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+    float: left;
+    height: 353px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.actuele_waarden{
+    float: left;
+    width: 35%;
+    height: 353px;
+    border-radius: 300px;
+    background-color: lightgrey;
+}
+
+.actuele_waarden p{
+    font-size: 50px;
+    text-align: center;
+    margin: 0;
+    padding-top: 150px;
+}
+
+.beoordeling_waarden{
+    margin: 0;
+    float: left;
+    margin-left: 10%;
+    width: 55%;
+}
+
+.beoordeling_waarden p{
+    margin: 0;
+}
+
+.btn_meerinfo{
+    width: 60%;
+    height: 40px;
+    background-color: lightgrey;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn_meerinfo p{
+    float: left;
+    padding-top: 8px;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+.btn_meerinfo img{
+    float: right;
+    padding-right: 20px;
+    padding-top: 11px;
+}
+.btn_metingsinterval{
+    width: 60%;
+    height: 40px;
+    background-color: lightgrey;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn_metingsinterval p{
+    float: left;
+    padding-top: 8px;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+.btn_metingsinterval img{
+    float: right;
+    padding-right: 20px;
+    padding-top: 11px;
+}
+
+.grafiek{
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+    float: left;
+    height: 500px;
+    border: 1px solid black;
+    margin-top: 40px;
+}
+
+.nav_grafiek{
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+    float: left;
+    height: 50px;
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.nav_grafiek ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.nav_grafiek li{
+    padding: 0;
+    margin: 0;
+    height: 50px;
+    background-color: #3c3c3c;
+    width: 25%;
+}
+
+.nav_grafiek a{
+    color: white;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 0;
+    padding-top: 16.5px;
+    height: 50px;
+}
+
+.grafiek_gemiddelde{
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    height: 50px;
+    float: left;
+    background-color: lightgrey;
+}
+
+.grafiek_gemiddelde p{
+    padding-left: 10px;
+}
+
+.grafiek_tijdstip{
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    height: 50px;
+    float: right;
+    background-color: lightgrey;
+}
+
+.grafiek_tijdstip p{
+    float: right;
+    padding-right: 10px;
+}
+
+.grafiek_links{
+    clear: both;
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-top: 190px;
+    background-color: lightgrey;
+}
+
+.grafiek_links p{
+    text-align: center;
+    font-size: 20px;
+    margin: 0;
+    margin-top: 12px;
+}
+
+.grafiek_rechts{
+    float: right;
+    width: 50px;
+    height: 50px;
+    margin-top: 190px;
+    background-color: lightgrey;
+}
+
+.grafiek_rechts p{
+    text-align: center;
+    font-size: 20px;
+    margin: 0;
+    margin-top: 12px;
+}

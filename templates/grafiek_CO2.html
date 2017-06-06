@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Dashboard CO2
+{% endblock %}
+
+{% block grafiek %}
+class="active"
+{% endblock %}
+
+{% block dashboard %}
+class="active"
+{% endblock %}
+
+{% block body %}
+    <div class="nav_dashboard">
+        <ul>
+            <li><a href="">CO2</a></li>
+            <li><a href="">Temperatuur</a></li>
+            <li><a href="">Vochtigheids-%</a></li>
+            <li><a href="">Comfortniveau</a></li>
+        </ul>
+    </div>
+    <div class="grafiek">
+        <div class="grafiek_gemiddelde">
+            <p>Gemiddelde: 470 ppm</p>
+        </div>
+        <div class="grafiek_tijdstip">
+            <p>30-05-2017 9-18 uur</p>
+        </div>
+        <div class="grafiek_links">
+            <p><</p>
+        </div>
+        <div class="grafiek_rechts">
+            <p>></p>
+        </div>
+        <div class="grafiek_grafiek">
+            <dl>
+                <dd>450</dd>
+                <dd>455</dd>
+                <dd>460</dd>
+                <dd>455</dd>
+                <dd>455</dd>
+                <dd>450</dd>
+            </dl>
+        </div>
+    </div>
+    <div class="nav_grafiek">
+        <ul>
+            <li><a href="">Per minuut</a></li>
+            <li><a href="">Per uur</a></li>
+            <li><a href="">Per dag</a></li>
+            <li><a href="">Wekelijks</a></li>
+        </ul>
+    </div>
+{% endblock %}

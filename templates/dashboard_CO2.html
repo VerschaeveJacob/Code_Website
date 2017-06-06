@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Dashboard CO2
+{% endblock %}
+
+{% block dashboard %}
+class="active"
+{% endblock %}
+
+{% block body %}
+    <div class="nav_dashboard">
+        <ul>
+            <li><a href="">CO2</a></li>
+            <li><a href="">Temperatuur</a></li>
+            <li><a href="">Vochtigheids-%</a></li>
+            <li><a href="">Comfortniveau</a></li>
+        </ul>
+    </div>
+    <div class="waarden">
+        <div class="actuele_waarden">
+            <p>450 ppm</p>
+        </div>
+        <div class="beoordeling_waarden">
+            <p>De CO2 waarde is 450 ppm. Dit is uitstekend. Probeer deze waarde zo te houden door de ramen open te zetten en voldoende planten in huis zetten.</p>
+            <a href="{{ url_for("informatie_CO2") }}">
+                <div class="btn_meerinfo">
+                    <p>Meer informatie</p>
+                    <img src="{{ url_for('static', filename='images/pijl_rechts.png') }}" alt="" width="20px" height="20px">
+                </div>
+            </a>
+            <p>Metingsinterval: 60 (s)</p>
+            <a href="">
+                <div class="btn_metingsinterval">
+                    <p>Wijzig metingsinterval</p>
+                    <img src="{{ url_for('static', filename='images/pijl_rechts.png') }}" alt="" width="20px" height="20px">
+                </div>
+            </a>
+        </div>
+    </div>
+{% endblock %}

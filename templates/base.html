@@ -9,8 +9,8 @@
 <nav>
     <ul>
         <li>AIR CHECK</li>
-        <li><a {% block dashboard %}{% endblock %} href="">Dashboard</a></li>
-        <li><a {% block grafiek %}{% endblock %} href="">Grafiek</a></li>
+        <li><a {% block dashboard %}{% endblock %} href="{{ url_for("dashboard_CO2") }}">Dashboard</a></li>
+        <li><a {% block grafiek %}{% endblock %} href="{{ url_for("g") }}">Grafiek</a></li>
         <li><a {% block informatie %}{% endblock %} href="">Informatie</a></li>
         <li><a {% block uitloggen %}{% endblock %} href="">Uitloggen</a></li>
     </ul>
