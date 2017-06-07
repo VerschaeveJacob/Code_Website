@@ -10,9 +10,9 @@
     <ul>
         <li>AIR CHECK</li>
         <li><a {% block dashboard %}{% endblock %} href="{{ url_for("dashboard_CO2") }}">Dashboard</a></li>
-        <li><a {% block grafiek %}{% endblock %} href="{{ url_for("g") }}">Grafiek</a></li>
-        <li><a {% block informatie %}{% endblock %} href="">Informatie</a></li>
-        <li><a {% block uitloggen %}{% endblock %} href="">Uitloggen</a></li>
+        <li><a {% block grafiek %}{% endblock %} href="{{ url_for("grafiek_CO2") }}">Grafiek</a></li>
+        <li><a {% block informatie %}{% endblock %} href="{{ url_for("informatie_CO2") }}">Informatie</a></li>
+        <li><a {% block uitloggen %}{% endblock %} href="{{ url_for("index") }}">Uitloggen</a></li>
     </ul>
 </nav>
     {% block body %}
@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="contact_form">
-            <form action="{{ url_for("index") }}" method="post">
+            <form action="{{ url_for("sentContact") }}" method="post">
                 <div class="form__naam">
                     <input type="text" id="naam" name="naam" placeholder="Naam ..." required>
                 </div>

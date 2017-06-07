@@ -759,3 +759,37 @@ li a:hover{
     margin: 0;
     margin-top: 12px;
 }
+
+.inloggen_verkeerd{
+    margin-top: 95px;
+    position: absolute;
+    top: 250px;
+    margin-left: 35%;
+    margin-right: 35%;
+    width: 30%;
+    height: 111px;
+    border-radius: 10px;
+    border: 1px solid red;
+    background-color: white;
+}
+
+.inloggen_verkeerd_ok{
+    margin-left: 10px;
+    width: 60px;
+    height: 40px;
+    background-color: lightgrey;
+    border-radius: 5px;
+}
+
+.inloggen_verkeerd h1{
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.inloggen_verkeerd_ok a{
+    text-decoration: none;
+}
+.inloggen_verkeerd_ok p{
+    text-align: center;
+    padding-top: 10px;
+}
