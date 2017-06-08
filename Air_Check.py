@@ -1,9 +1,10 @@
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, redirect
 import os
 from dbClass import dbClass
 
 app = Flask(__name__)
 
+#serienummer = ""
 
 @app.route('/', methods=["GET","POST"])
 def index():
@@ -26,8 +27,14 @@ def informatie_comfortniveau():
     return render_template('informatie_comfortniveau.html')
 
 @app.route('/dashboard_CO2')
-def dashboard_CO2():
-    return render_template('dashboard_CO2.html')
+def dashboard_CO2(CO2):
+    db = dbClass()
+    #print(serienummer)
+    #CO2_waarde = db.CO2_dashboard(serienummer)
+    #print(CO2_waarde)
+    #CO2 = 455
+    #print(serienummer)
+    return render_template('dashboard_CO2.html', waarde = CO2)
 
 @app.route('/grafiek_CO2')
 def grafiek_CO2():
@@ -51,15 +58,22 @@ def sentRegistreer():
     db = dbClass()
     email = request.form['email']
     print(email)
+    email = request.form['email']
     password = request.form['password']
     print(password)
     password_bevestigen = request.form['password_bevestigen']
     print(password_bevestigen)
     serienummer = request.form['serienummer']
     print(serienummer)
-    db.registreren(email,password,serienummer)
-    print("Gelukt")
-    return render_template('index.html')
+    result_email = db.registreren_emailadres_controleren(email)
+    print(result_email[0])
+
+    if result_email[0] != 0 or password != password_bevestigen:
+        return render_template("registreren.html")
+    else:
+        db.registreren(email,password,serienummer)
+        print("Gelukt")
+        return render_template('index.html')
 
 @app.route('/contactverzenden')
 def contactverzenden():
@@ -73,13 +87,18 @@ def inloggen_controleren():
 
     aantal = db.inloggen_controleren(email, wachtwoord)
     print(aantal)
+    #global serienummer
     print("DB_Controleren")
+    CO2 = 355
+    #serienummer = db.inloggen_serienummer(email)
+    #print(serienummer)
     if aantal[0] == 1:
         print("JA")
-        return render_template("dashboard_CO2.html")
+        return dashboard_CO2(CO2)
     else:
         print("Nee")
         return render_template("inloggen_verkeerd.html")
+
 @app.context_processor
 def override_url_for():
     return dict(url_for=dated_url_for)
@@ -94,4 +113,4 @@ def dated_url_for(endpoint, **values):
     return url_for(endpoint, **values)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

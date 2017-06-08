@@ -256,6 +256,8 @@ li a:hover{
 
 .inloggen_form__submit{
     margin-top: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .inloggen_form__submit input{
