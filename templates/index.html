@@ -53,7 +53,7 @@
             </div>
         </div>
         <div class="contact_form">
-            <form action="{{ url_for("index") }}" method="post">
+            <form action="{{ url_for("sentContact") }}" method="post">
                 <div class="form__naam">
                     <input type="text" id="naam" name="naam" placeholder="Naam ..." required>
                 </div>
@@ -67,7 +67,7 @@
                 </div>
 
                 <div class="form__submit">
-                    <input type="submit" value="Verzenden">
+                    <input id="knop_inloggen" type="submit" value="Verzenden">
                 </div>
             </form>
         </div>

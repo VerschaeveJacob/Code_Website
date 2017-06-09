@@ -9,6 +9,7 @@ class dbClass():
     def insert_comment(self, name, email, comment):
         q = "INSERT INTO tblContact(Naam,Emailadres,Bericht, Tijdstip)" \
             "VALUES('" + name + "','" + email + "','" + comment + "', now())"
+        print(q)
         self.__cursor.execute(q)
         self.__connection.commit()
         self.__connection.close()
@@ -20,8 +21,8 @@ class dbClass():
         self.__connection.commit()
         self.__connection.close()
 
-    def inloggen_controleren(self, mail, passwoord):
-        q = "SELECT COUNT(*) FROM tblGegevens WHERE Emailadres = '" + mail + "' AND Wachtwoord = '" + passwoord + "';"
+    def inloggen_controleren(self, mail):
+        q = "SELECT wachtwoord FROM tblGegevens WHERE Emailadres = '" + mail + "';"
         self.__cursor.execute(q)
         result = self.__cursor.fetchone()
         self.__connection.close()
@@ -43,6 +44,30 @@ class dbClass():
 
     def CO2_dashboard(self, serienummer):
         q = "SELECT M.CO2 FROM tblGegevens as G JOIN tblMetingCO2 as M ON M.Serienummer = G.Serienummer " \
+            "WHERE M.Serienummer LIKE '" + serienummer +  "' ORDER BY Tijdstip DESC LIMIT 1;"
+        self.__cursor.execute(q)
+        result = self.__cursor.fetchone()
+        self.__connection.close()
+        return result
+
+    def Temperatuur_dashboard(self, serienummer):
+        q = "SELECT M.Temperatuur FROM tblGegevens as G JOIN tblMetingLTC as M ON M.Serienummer = G.Serienummer " \
+            "WHERE M.Serienummer LIKE '" + serienummer +  "' ORDER BY Tijdstip DESC LIMIT 1;"
+        self.__cursor.execute(q)
+        result = self.__cursor.fetchone()
+        self.__connection.close()
+        return result
+
+    def Luchtvochtigheid_dashboard(self, serienummer):
+        q = "SELECT M.Luchtvochtigheid FROM tblGegevens as G JOIN tblMetingLTC as M ON M.Serienummer = G.Serienummer " \
+            "WHERE M.Serienummer LIKE '" + serienummer +  "' ORDER BY Tijdstip DESC LIMIT 1;"
+        self.__cursor.execute(q)
+        result = self.__cursor.fetchone()
+        self.__connection.close()
+        return result
+
+    def Comfortniveau_dashboard(self, serienummer):
+        q = "SELECT M.Comfortniveau FROM tblGegevens as G JOIN tblMetingLTC as M ON M.Serienummer = G.Serienummer " \
             "WHERE M.Serienummer LIKE '" + serienummer +  "' ORDER BY Tijdstip DESC LIMIT 1;"
         self.__cursor.execute(q)
         result = self.__cursor.fetchone()
