@@ -73,3 +73,32 @@ class dbClass():
         result = self.__cursor.fetchone()
         self.__connection.close()
         return result
+
+    def CO2_grafiek(self, serienummer):
+        q = "SELECT CO2, Tijdstip FROM tblMetingCO2 WHERE Serienummer = '" + serienummer + "' ORDER BY Tijdstip DESC LIMIT 5;"
+        self.__cursor.execute(q)
+        result = self.__cursor.fetchall()
+        self.__connection.close()
+        return result
+
+
+    def Temperatuur_grafiek(self, serienummer):
+        q = "SELECT Temperatuur, Tijdstip FROM tblMetingLTC WHERE Serienummer = '" + serienummer + "' ORDER BY Tijdstip DESC LIMIT 5;"
+        self.__cursor.execute(q)
+        result = self.__cursor.fetchall()
+        self.__connection.close()
+        return result
+
+    def Luchtvochtigheid_grafiek(self, serienummer):
+        q = "SELECT Luchtvochtigheid, Tijdstip FROM tblMetingLTC WHERE Serienummer = '" + serienummer + "' ORDER BY Tijdstip DESC LIMIT 5;"
+        self.__cursor.execute(q)
+        result = self.__cursor.fetchall()
+        self.__connection.close()
+        return result
+
+    def Comfortniveau_grafiek(self, serienummer):
+        q = "SELECT Comfortniveau, Tijdstip FROM tblMetingLTC WHERE Serienummer = '" + serienummer + "' ORDER BY Tijdstip DESC LIMIT 5;"
+        self.__cursor.execute(q)
+        result = self.__cursor.fetchall()
+        self.__connection.close()
+        return result

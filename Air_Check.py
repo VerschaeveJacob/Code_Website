@@ -65,7 +65,137 @@ def dashboard_comfortniveau():
 #GRAFIEK PAGINA'S
 @app.route('/grafiek_CO2')
 def grafiek_CO2():
-    return render_template('grafiek_CO2.html')
+    sum = 0
+    i = 1
+    tijdstip = ""
+    lst_dates = []
+    lst_CO2 = []
+    db = dbClass()
+    global serienummer
+    CO2_waarde = db.CO2_grafiek(str(serienummer[0]))
+    print(CO2_waarde)
+    CO2_correcte_volgorde = CO2_waarde[::-1]
+    print(CO2_correcte_volgorde)
+    for waarde in CO2_correcte_volgorde:
+        sum += waarde[0]
+
+    gemiddelde = sum / 5
+
+
+    for waarde in CO2_correcte_volgorde:
+        if i == 1:
+            tijdstip += str(waarde[1]) + " "
+        if i == 5:
+            tijdstip += str(waarde[1])
+        i+=1
+
+    for waarde in CO2_correcte_volgorde:
+        lst_dates.append(waarde[1])
+        lst_CO2.append(waarde[0])
+    print(tijdstip)
+    tijdstip_format = tijdstip[0:10] + " " + tijdstip[11:16] + "-" + tijdstip[31:36]
+    return render_template('grafiek_CO2.html', lijst_waarden = CO2_correcte_volgorde, gem = gemiddelde, tijdstip = tijdstip_format, dates = lst_dates, CO2 = lst_CO2)
+
+@app.route('/grafiek_Temperatuur')
+def grafiek_Temperatuur():
+    sum = 0
+    i = 1
+    tijdstip = ""
+    lst_dates = []
+    lst_Temperatuur = []
+    db = dbClass()
+    global serienummer
+    Temp_waarde = db.Temperatuur_grafiek(str(serienummer[0]))
+    print(Temp_waarde)
+    Temp_correcte_volgorde = Temp_waarde[::-1]
+    print(Temp_correcte_volgorde)
+    for waarde in Temp_correcte_volgorde:
+        sum += waarde[0]
+
+    gemiddelde = sum / 5
+
+
+    for waarde in Temp_correcte_volgorde:
+        if i == 1:
+            tijdstip += str(waarde[1]) + " "
+        if i == 5:
+            tijdstip += str(waarde[1])
+        i+=1
+
+    for waarde in Temp_correcte_volgorde:
+        lst_dates.append(waarde[1])
+        lst_Temperatuur.append(waarde[0])
+    print(tijdstip)
+    tijdstip_format = tijdstip[0:10] + " " + tijdstip[11:16] + "-" + tijdstip[31:36]
+    return render_template('grafiek_Temperatuur.html', lijst_waarden = Temp_correcte_volgorde, gem = gemiddelde, tijdstip = tijdstip_format, dates = lst_dates, Temperatuur = lst_Temperatuur)
+
+@app.route('/grafiek_luchtvochtigheid')
+def grafiek_luchtvochtigheid():
+    sum = 0
+    i = 1
+    tijdstip = ""
+    lst_dates = []
+    lst_Luchtvochtigheid = []
+    db = dbClass()
+    global serienummer
+    Luchtvochtigheid_waarde = db.Luchtvochtigheid_grafiek(str(serienummer[0]))
+    print(Luchtvochtigheid_waarde)
+    Luchtvochtigheid_correcte_volgorde = Luchtvochtigheid_waarde[::-1]
+    print(Luchtvochtigheid_waarde)
+    for waarde in Luchtvochtigheid_correcte_volgorde:
+        sum += waarde[0]
+
+    gemiddelde = sum / 5
+
+
+    for waarde in Luchtvochtigheid_correcte_volgorde:
+        if i == 1:
+            tijdstip += str(waarde[1]) + " "
+        if i == 5:
+            tijdstip += str(waarde[1])
+        i+=1
+
+    for waarde in Luchtvochtigheid_correcte_volgorde:
+        lst_dates.append(waarde[1])
+        lst_Luchtvochtigheid.append(waarde[0])
+    print(tijdstip)
+    tijdstip_format = tijdstip[0:10] + " " + tijdstip[11:16] + "-" + tijdstip[31:36]
+    return render_template('grafiek_Vochtigheidspercentage.html', lijst_waarden = Luchtvochtigheid_correcte_volgorde, gem = gemiddelde, tijdstip = tijdstip_format, dates = lst_dates, Temperatuur = lst_Luchtvochtigheid)
+
+@app.route('/grafiek_comfortniveau')
+def grafiek_comfortniveau():
+    sum = 0
+    i = 1
+    tijdstip = ""
+    lst_dates = []
+    lstComfortniveau = []
+    db = dbClass()
+    global serienummer
+    Comfortniveau_waarde = db.Comfortniveau_grafiek(str(serienummer[0]))
+    print(Comfortniveau_waarde)
+    Comfortniveau_correcte_volgorde = Comfortniveau_waarde[::-1]
+    print(Comfortniveau_waarde)
+    for waarde in Comfortniveau_correcte_volgorde:
+        sum += waarde[0]
+
+    gemiddelde = sum / 5
+
+
+    for waarde in Comfortniveau_correcte_volgorde:
+        if i == 1:
+            tijdstip += str(waarde[1]) + " "
+        if i == 5:
+            tijdstip += str(waarde[1])
+        i+=1
+
+    for waarde in Comfortniveau_correcte_volgorde:
+        lst_dates.append(waarde[1])
+        lstComfortniveau.append(waarde[0])
+    print(tijdstip)
+    tijdstip_format = tijdstip[0:10] + " " + tijdstip[11:16] + "-" + tijdstip[31:36]
+    return render_template('grafiek_Comfortniveau.html', lijst_waarden = Comfortniveau_correcte_volgorde, gem = gemiddelde, tijdstip = tijdstip_format, dates = lst_dates, Temperatuur = lstComfortniveau)
+
+
 
 
 
@@ -152,6 +282,13 @@ def inloggen_controleren():
     #     print("Nee")
 
 
+# #GEMIDDELDE_BEREKENEN
+# def average(lst):
+#     sum = 0
+#     for waarde in lst:
+#         sum  += waarde[0]
+
+
 
 #PASSWORD HASHING AND DEHASHING
 def hash_password(password):
@@ -178,4 +315,7 @@ def dated_url_for(endpoint, **values):
     return url_for(endpoint, **values)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 8080))
+    host = "0.0.0.0"
+    app.run(host=host, port=port, debug=True)
+

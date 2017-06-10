@@ -22,8 +22,16 @@ class="active"
             <p>{{ waarde }} %</p>
         </div>
         <div class="beoordeling_waarden">
-            <p>De CO2 waarde is 450 ppm. Dit is uitstekend. Probeer deze waarde zo te houden door de ramen open te zetten en voldoende planten in huis zetten.</p>
-            <a href="{{ url_for("informatie_CO2") }}">
+            {% if waarde < 50 %}
+                <p>De luchtvochtigheid bedraagt {{ waarde }} %. Dit is een lage luchtvochtigheid.</p>
+            {% endif %}
+            {% if waarde >= 50 and waarde <= 60%}
+                <p>De luchtvochtigheid bedraagt {{ waarde }} %. Dit is een matige luchtvochtigheid.</p>
+            {% endif %}
+            {% if waarde > 60%}
+                <p>De luchtvochtigheid bedraagt {{ waarde }} %. Dit is een hoge luchtvochtigheid.</p>
+            {% endif %}
+            <a href="{{ url_for("informatie_comfortniveau") }}">
                 <div class="btn_meerinfo">
                     <p>Meer informatie</p>
                     <img src="{{ url_for('static', filename='images/pijl_rechts.png') }}" alt="" width="20px" height="20px">

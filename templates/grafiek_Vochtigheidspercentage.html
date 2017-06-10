@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Grafiek CO2
+Grafiek Vochtigheidspercentage
 {% endblock %}
 
 {% block grafiek %}
@@ -19,7 +19,7 @@ class="active"
     </div>
     <div class="grafiek">
         <div class="grafiek_gemiddelde">
-            <p>Gemiddelde: {{ gem|int }} ppm</p>
+            <p>Gemiddelde: {{ gem|int }} %</p>
         </div>
         <div class="grafiek_tijdstip">
             <p>{{ tijdstip }}</p>

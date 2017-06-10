@@ -669,8 +669,7 @@ li a:hover{
     margin-right: 15%;
     width: 70%;
     float: left;
-    height: 500px;
-    border: 1px solid black;
+    height: 225px;
     margin-top: 40px;
 }
 
@@ -798,4 +797,20 @@ li a:hover{
 .inloggen_verkeerd_ok p{
     text-align: center;
     padding-top: 10px;
+}
+
+.grafiek_grafiek table, th, td{
+    border: 1px solid black;
+    margin-top: 80px;
+}
+
+.grafiek_grafiek table td,th {
+    text-align: center;
+    padding: 10px;
+}
+
+#grafiek_CO2{
+    width: 80%;
+    height: 400px;
+    margin-top: 80px;
 }
