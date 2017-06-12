@@ -48,5 +48,21 @@ class="active"
                 </div>
             </a>
         </div>
+        <div class="metingsinterval_CO2">
+            <div class="metingsinterval_hoofd">
+                <h1>Wijziging metingsinterval</h1>
+                <a href="{{ url_for("dashboard_temperatuur") }}"><div id="sluit_metingsinterval"><p>X</p></div></a>
+            </div>
+            <div class="metingsinterval_basis">
+                <p>Huidig ({{ metingsinterval }})</p>
+                <img src="{{ url_for('static', filename='images/pijl_rechts_png.png') }}" alt="" width="20px" height="20px">
+                <div class="form_metingsinterval">
+                    <form action="{{ url_for('metingsinterval_wijzigen_temperatuur') }}" method="post">
+                        <input title="CO2_metingsinterval" type="text" name="temperatuur">
+                        <input type="submit" value="Wijzig" id="btn_wijzig">
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>{% block title %} - Air Check{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block scripts %}
+
+    {% endblock %}
 </head>
 <body>
 <nav>
@@ -69,8 +72,6 @@
         </div>
     </div>
 </footer>
-{% block scripts %}
 
-{% endblock %}
 </body>
 </html>

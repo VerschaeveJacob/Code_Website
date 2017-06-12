@@ -32,20 +32,22 @@ class="active"
 {#        </div>#}
         <div class="grafiek_grafiek">
 {#            <div id="grafiek_CO2" style="width: 80%; height: 400px;"></div>#}
-            <table>
-                <tr>
+            <div id="curve_chart" style="width: 80%; height: 500px"></div>
 
-                {% for waarde in lijst_waarden %}
-                    <th>{{ waarde[1] }}</th>
-                {% endfor %}
-                </tr>
-                <tr>
-                {% for waarde in lijst_waarden %}
-                    <td>{{ waarde[0] }}</td>
-                {% endfor %}
-
-                </tr>
-            </table>
+{#            <table>#}
+{#                <tr>#}
+{##}
+{#                {% for waarde in lijst_waarden %}#}
+{#                    <th>{{ waarde[1] }}</th>#}
+{#                {% endfor %}#}
+{#                </tr>#}
+{#                <tr>#}
+{#                {% for waarde in lijst_waarden %}#}
+{#                    <td>{{ waarde[0] }}</td>#}
+{#                {% endfor %}#}
+{##}
+{#                </tr>#}
+{#            </table>#}
 
         </div>
     </div>
@@ -60,30 +62,30 @@ class="active"
 {% endblock %}
 
 {% block scripts %}
-{#    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>#}
-{#    <script type="text/javascript">#}
-{#        google.charts.load('current', {'packages':['corechart']});#}
-{#        google.charts.setOnLoadCallback(drawChart);#}
-{##}
-{#        function drawChart() {#}
-{#            var data = google.visualization.arrayToDataTable([#}
-{#                ['Date', 'CO2'],#}
-{#                [{{ dates[0] }},  {{ CO2[0] }}],#}
-{#                [{{ dates[1] }},  {{ CO2[1] }}],#}
-{#                [{{ dates[2] }},  {{ CO2[2] }}],#}
-{#                [{{ dates[3] }},  {{ CO2[3] }}],#}
-{#                [{{ dates[4] }},  {{ CO2[4] }}]#}
-{#            ]);#}
-{##}
-{#            var options = {#}
-{#                title: 'CO2-values',#}
-{#                curveType: 'function',#}
-{#                legend: { position: 'bottom' }#}
-{#            };#}
-{##}
-{#            var chart = new google.visualization.LineChart(document.getElementById('grafiek_CO2'));#}
-{##}
-{#            chart.draw(data, options);#}
-{#        }#}
-{#    </script>#}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Date', 'Temperatuur'],
+                ['{{ dates[0]|string }}',  {{ Temperatuur[0] }}],
+                ['{{ dates[1]|string }}',  {{ Temperatuur[1] }}],
+                ['{{ dates[2]|string }}',  {{ Temperatuur[2] }}],
+                ['{{ dates[3]|string }}',  {{ Temperatuur[3] }}],
+                ['{{ dates[4]|string }}',  {{ Temperatuur[4] }}]
+            ]);
+
+            var options = {
+                title: 'Temperatuur-values',
+                curveType: 'function',
+                legend: { position: 'bottom' }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+    </script>
 {% endblock %}

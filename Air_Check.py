@@ -10,7 +10,7 @@ app = Flask(__name__)
 serienummer = ""
 
 
-#INLOGGEN, REGISTREREN, NIEUW WACHTWOORD
+#INLOGGEN, REGISTREREN, NIEUW WACHTWOORD, SERIENUMMER_POP UP
 @app.route('/', methods=["GET","POST"])
 def index():
     return render_template('index.html')
@@ -23,43 +23,146 @@ def registreer():
 def nieuw_wachtwoord():
     return render_template('nieuwwachtwoord.html')
 
-
+@app.route('/serienummer')
+def serienummer_pop_up():
+    return render_template('serienummer_popup.html')
 
 
 #DASHBOARD PAGINA'S
 @app.route('/dashboard_CO2')
 def dashboard_CO2():
     db = dbClass()
+    db_metingsinterval = dbClass()
     global serienummer
     print("serienummer dashboard %s" % serienummer)
     CO2_waarde = db.CO2_dashboard(str(serienummer[0]))
+    metingsinterval = db_metingsinterval.metingsinterval_CO2(serienummer[0])
+    print(metingsinterval)
     print(CO2_waarde)
-    return render_template('dashboard_CO2.html', waarde = round(int(CO2_waarde[0]),0))
+    return render_template('dashboard_CO2.html', waarde = round(int(CO2_waarde[0]),0), metingsinterval = metingsinterval[0])
+
+@app.route('/dashboard_CO2_tijdsinterval')
+def dashboard_CO2_tijdsinterval():
+    db = dbClass()
+    db_metingsinterval = dbClass()
+    global serienummer
+    print("serienummer dashboard %s" % serienummer)
+    CO2_waarde = db.CO2_dashboard(str(serienummer[0]))
+    metingsinterval = db_metingsinterval.metingsinterval_CO2(serienummer[0])
+    print(CO2_waarde)
+    return render_template('dashboard_CO2_tijdsinterval.html',waarde = round(int(CO2_waarde[0]),0), metingsinterval = metingsinterval[0])
+
+@app.route('/metingsinterval_CO2', methods=["POST"])
+def metingsinterval_wijzigen_CO2():
+    db = dbClass()
+    db_metingsinterval = dbClass()
+    db_update = dbClass()
+    global serienummer
+    waarde = request.form['CO2']
+    db_update.update_metingsinterval_CO2(serienummer[0], waarde)
+    CO2_waarde = db.CO2_dashboard(str(serienummer[0]))
+    metingsinterval = db_metingsinterval.metingsinterval_CO2(serienummer[0])
+    return render_template('dashboard_CO2.html', waarde = round(int(CO2_waarde[0]),0), metingsinterval = metingsinterval[0])
+
 
 @app.route('/dashboard_temperatuur')
 def dashboard_temperatuur():
     db = dbClass()
+    db_metingsinterval = dbClass()
     global serienummer
     Temp_waarde = db.Temperatuur_dashboard(str(serienummer[0]))
+    metingsinterval = db_metingsinterval.metingsinterval_LTC(serienummer[0])
     print(Temp_waarde)
-    return render_template('dashboard_temperatuur.html', waarde = round(int(Temp_waarde[0]),0))
+    return render_template('dashboard_temperatuur.html', waarde = round(int(Temp_waarde[0]),0), metingsinterval = metingsinterval[0])
+
+@app.route('/dashboard_temperatuur_tijdsinterval')
+def dashboard_temperatuur_tijdsinterval():
+    db = dbClass()
+    db_metingsinterval = dbClass()
+    global serienummer
+    Temp_waarde = db.Temperatuur_dashboard(str(serienummer[0]))
+    metingsinterval = db_metingsinterval.metingsinterval_LTC(serienummer[0])
+    print(Temp_waarde)
+    return render_template('dashboard_temperatuur_tijdsinterval.html', waarde = round(int(Temp_waarde[0]),0), metingsinterval = metingsinterval[0])
+
+@app.route('/metingsinterval_temperatuur', methods=["POST"])
+def metingsinterval_wijzigen_temperatuur():
+    db = dbClass()
+    db_metingsinterval = dbClass()
+    db_update = dbClass()
+    global serienummer
+    waarde = request.form['temperatuur']
+    db_update.update_metingsinterval_LTC(serienummer[0], waarde)
+    Temp_waarde = db.Temperatuur_dashboard(str(serienummer[0]))
+    metingsinterval = db_metingsinterval.metingsinterval_LTC(serienummer[0])
+    return render_template('dashboard_temperatuur.html', waarde = round(int(Temp_waarde[0]),0), metingsinterval = metingsinterval[0])
+
+
 
 @app.route('/dashboard_luchtvochtigheid')
 def dashboard_luchtvochtigheid():
     db = dbClass()
+    db_metingsinterval = dbClass()
     global serienummer
     Luchtvochtigheids_waarde = db.Luchtvochtigheid_dashboard(str(serienummer[0]))
+    metingsinterval = db_metingsinterval.metingsinterval_LTC(serienummer[0])
     print(Luchtvochtigheids_waarde)
-    return render_template('dashboard_luchtvochtigheid.html', waarde = round(int(Luchtvochtigheids_waarde[0]),0))
+    return render_template('dashboard_luchtvochtigheid.html', waarde = round(int(Luchtvochtigheids_waarde[0]),0), metingsinterval = metingsinterval[0])
+
+@app.route('/dashboard_luchtvochtigheid_tijdsinterval')
+def dashboard_luchtvochtigheid_tijdsinterval():
+    db = dbClass()
+    db_metingsinterval = dbClass()
+    global serienummer
+    Luchtvochtigheids_waarde = db.Luchtvochtigheid_dashboard(str(serienummer[0]))
+    metingsinterval = db_metingsinterval.metingsinterval_LTC(serienummer[0])
+    print(Luchtvochtigheids_waarde)
+    return render_template('dashboard_luchtvochtigheid_tijdsinterval.html', waarde = round(int(Luchtvochtigheids_waarde[0]),0), metingsinterval = metingsinterval[0])
+
+@app.route('/metingsinterval_luchtvochtigheid', methods=["post"])
+def metingsinterval_wijzigen_luchtvochtigheid():
+    db = dbClass()
+    db_metingsinterval = dbClass()
+    db_update = dbClass()
+    global serienummer
+    waarde = request.form['luchtvochtigheid']
+    db_update.update_metingsinterval_LTC(serienummer[0], waarde)
+    Luchtvochtigheids_waarde = db.Luchtvochtigheid_dashboard(str(serienummer[0]))
+    metingsinterval = db_metingsinterval.metingsinterval_LTC(serienummer[0])
+    return render_template('dashboard_luchtvochtigheid.html', waarde = round(int(Luchtvochtigheids_waarde[0]),0), metingsinterval = metingsinterval[0])
+
 
 @app.route('/dashboard_comfortniveau')
 def dashboard_comfortniveau():
     db = dbClass()
+    db_metingsinterval = dbClass()
     global serienummer
     Comfortniveau_waarde = db.Comfortniveau_dashboard(str(serienummer[0]))
+    metingsinterval = db_metingsinterval.metingsinterval_LTC(serienummer[0])
     print(Comfortniveau_waarde)
-    return render_template('dashboard_comfortniveau.html', waarde = round(int(Comfortniveau_waarde[0]),0))
+    return render_template('dashboard_comfortniveau.html', waarde = round(int(Comfortniveau_waarde[0]),0), metingsinterval = metingsinterval[0])
 
+@app.route('/dashboard_comfortniveau_tijdsinterval')
+def dashboard_comfortniveau_tijdsinterval():
+    db = dbClass()
+    db_metingsinterval = dbClass()
+    global serienummer
+    Comfortniveau_waarde = db.Comfortniveau_dashboard(str(serienummer[0]))
+    metingsinterval = db_metingsinterval.metingsinterval_LTC(serienummer[0])
+    print(Comfortniveau_waarde)
+    return render_template('dashboard_comfortniveau_tijdsinterval.html', waarde=round(int(Comfortniveau_waarde[0]), 0), metingsinterval = metingsinterval[0])
+
+@app.route('/metingsinterval_comfortniveau', methods=["post"])
+def metingsinterval_wijzigen_comfortniveau():
+    db = dbClass()
+    db_metingsinterval = dbClass()
+    db_update = dbClass()
+    global serienummer
+    waarde = request.form['comfortniveau']
+    db_update.update_metingsinterval_LTC(serienummer[0], waarde)
+    Comfortniveau_waarde = db.Comfortniveau_dashboard(str(serienummer[0]))
+    metingsinterval = db_metingsinterval.metingsinterval_LTC(serienummer[0])
+    return render_template('dashboard_comfortniveau.html', waarde = round(int(Comfortniveau_waarde[0]),0), metingsinterval = metingsinterval[0])
 
 
 #GRAFIEK PAGINA'S
@@ -160,7 +263,7 @@ def grafiek_luchtvochtigheid():
         lst_Luchtvochtigheid.append(waarde[0])
     print(tijdstip)
     tijdstip_format = tijdstip[0:10] + " " + tijdstip[11:16] + "-" + tijdstip[31:36]
-    return render_template('grafiek_Vochtigheidspercentage.html', lijst_waarden = Luchtvochtigheid_correcte_volgorde, gem = gemiddelde, tijdstip = tijdstip_format, dates = lst_dates, Temperatuur = lst_Luchtvochtigheid)
+    return render_template('grafiek_Vochtigheidspercentage.html', lijst_waarden = Luchtvochtigheid_correcte_volgorde, gem = gemiddelde, tijdstip = tijdstip_format, dates = lst_dates, Luchtvochtigheid = lst_Luchtvochtigheid)
 
 @app.route('/grafiek_comfortniveau')
 def grafiek_comfortniveau():
@@ -193,7 +296,7 @@ def grafiek_comfortniveau():
         lstComfortniveau.append(waarde[0])
     print(tijdstip)
     tijdstip_format = tijdstip[0:10] + " " + tijdstip[11:16] + "-" + tijdstip[31:36]
-    return render_template('grafiek_Comfortniveau.html', lijst_waarden = Comfortniveau_correcte_volgorde, gem = gemiddelde, tijdstip = tijdstip_format, dates = lst_dates, Temperatuur = lstComfortniveau)
+    return render_template('grafiek_Comfortniveau.html', lijst_waarden = Comfortniveau_correcte_volgorde, gem = gemiddelde, tijdstip = tijdstip_format, dates = lst_dates, Comfortniveau = lstComfortniveau)
 
 
 
@@ -282,12 +385,6 @@ def inloggen_controleren():
     #     print("Nee")
 
 
-# #GEMIDDELDE_BEREKENEN
-# def average(lst):
-#     sum = 0
-#     for waarde in lst:
-#         sum  += waarde[0]
-
 
 
 #PASSWORD HASHING AND DEHASHING
@@ -301,6 +398,8 @@ def check_password(hashed_password, user_password):
     password, salt = hashed_password.split(':')
     return password == hashlib.sha256(salt.encode() + user_password.encode()).hexdigest()
 
+
+#CSS Query
 @app.context_processor
 def override_url_for():
     return dict(url_for=dated_url_for)
@@ -318,4 +417,4 @@ if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8080))
     host = "0.0.0.0"
     app.run(host=host, port=port, debug=True)
-
+    #app.run(debug=True)

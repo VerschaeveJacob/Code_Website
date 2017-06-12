@@ -11,23 +11,25 @@ ul{
     padding: 0;
     overflow: hidden;
     background-color: #000;
+    width: 100%;
 }
 
 li:first-child{
     float: left;
     color: white;
     text-align: center;
-    margin-left: 2%;
-    margin-right: 50%;
+    margin-left: 15%;
+    margin-right: 20%;
     padding-top: 12px;
     padding-bottom: 12px;
     font-size: 20px;
     font-weight: bold;
+    width: 10%;
 }
 
 li{
     float: left;
-    margin-right: 1%;
+    width: 10%;
 }
 
 li:last-child{
@@ -41,17 +43,17 @@ li a{
     text-align: center;
     padding-top: 14.5px;
     padding-bottom: 14.5px;
-    padding-left: 30px;
-    padding-right: 20px;
+    /*padding-left: 30px;*/
+    /*padding-right: 20px;*/
     text-decoration: none;
 }
 
 li a:hover{
-    background-color: #4CAF50;
+    background-color: #E18A07;
 }
 
 .active{
-    background-color: #4CAF50;
+    background-color: #E18A07;
 }
 
 .footer__titel{
@@ -151,10 +153,6 @@ li a:hover{
     height: 50px;
 }
 
-#knop_inloggen{
-    height: 50px;
-}
-
 .sitemap{
     float: left;
     color: white;
@@ -194,7 +192,9 @@ li a:hover{
     margin-right: 30%;
     width: 40%;
     height: 306px;
-    background-color: lightgrey;
+    background-color: #C0C0C0;
+    opacity: 0.95;
+    box-shadow: 3px 5px 100px #C0C0C0;
     border-radius: 10px;
 }
 
@@ -268,6 +268,10 @@ li a:hover{
     width: 40%;
     height: 20px;
     padding: 20px 40px;
+}
+
+#inloggen_knop{
+    height: 50px;
 }
 
 .sluit_box{
@@ -567,14 +571,14 @@ li a:hover{
     margin: 0;
     padding: 0;
     background-color: white;
-    margin-left: 29%;
+    margin-left: 20%;
 }
 
 .nav_dashboard li{
     padding: 0;
     margin: 0;
     height: 50px;
-    background-color: #3c3c3c;
+    background-color: black;
     width: 15%;
 }
 
@@ -669,7 +673,7 @@ li a:hover{
     margin-right: 15%;
     width: 70%;
     float: left;
-    height: 225px;
+    height: 620px;
     margin-top: 40px;
 }
 
@@ -765,6 +769,11 @@ li a:hover{
     margin-top: 12px;
 }
 
+#curve_chart{
+    margin-top: 10%;
+    margin-left: 9%;
+}
+
 .inloggen_verkeerd{
     margin-top: 95px;
     position: absolute;
@@ -813,4 +822,111 @@ li a:hover{
     width: 80%;
     height: 400px;
     margin-top: 80px;
+}
+
+.serienummer_pop_up{
+    background-color: black;
+    position: absolute;
+    top: 71%;
+    color: white;
+    border-radius: 5px;
+    width: 90%;
+}
+
+.serienummer_pop_up p{
+    float: left;
+    padding-left: 5%;
+    font-size: 14px;
+}
+
+#sluit_pop_up{
+    width: 30px;
+    height: 30px;
+    background-color: darkgray;
+    color: black;
+    float: right;
+    margin-top: 10px;
+    margin-right: 5%;
+    border-radius: 5px;
+}
+
+#sluit_pop_up p{
+    margin: 0;
+    font-size: 20px;
+    padding-top: 2px;
+    padding-left: 7px;
+}
+
+.metingsinterval_CO2{
+    float: left;
+    width: 40%;
+    margin-left: 25%;
+    position: absolute;
+    top: 425px;
+    height: 90px;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-flow: column;
+}
+
+.metingsinterval_hoofd{
+    display: flex;
+    flex-flow: row;
+    padding-left: 3%;
+}
+
+.metingsinterval_hoofd h1{
+    font-size: 20px;
+    margin-right: 38%;
+}
+.metingsinterval_basis{
+    display: flex;
+    flex-flow: row;
+    padding-left: 3%;
+}
+
+.metingsinterval_basis p{
+    margin: 0;
+    padding: 0;
+    padding-right: 10%;
+}
+
+.metingsinterval_basis img{
+    padding-right: 10%;
+}
+
+.form_metingsinterval{
+    display: flex;
+    flex-flow: row;
+}
+
+.form_metingsinterval input{
+    width: 202px;
+    background-color: white;
+}
+
+#btn_wijzig{
+    width: 90px;
+    background-color: #E18A07;
+    color: black;
+    border: 0;
+}
+
+#sluit_metingsinterval{
+    width: 30px;
+    height: 30px;
+    background-color: darkgray;
+    color: black;
+    float: right;
+    margin-top: 10px;
+    margin-right: 5%;
+    border-radius: 5px;
+}
+
+#sluit_metingsinterval p{
+    margin: 0;
+    font-size: 20px;
+    padding-top: 2px;
+    padding-left: 7px;
 }

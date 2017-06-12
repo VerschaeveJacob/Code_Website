@@ -2,7 +2,7 @@ class dbClass():
     def __init__(self):
         import mysql.connector as connector
 
-        self.__dsn = {"host": "localhost", "user": "jacob", "passwd": "root", "db": "Air_Check"}
+        self.__dsn = {"host": "localhost", "user": "jacob", "passwd": "root", "db": "AIR_CHECK"}
         self.__connection = connector.connect(**self.__dsn)
         self.__cursor = self.__connection.cursor()
 
@@ -102,3 +102,29 @@ class dbClass():
         result = self.__cursor.fetchall()
         self.__connection.close()
         return result
+
+    def metingsinterval_CO2(self, serienummer):
+        q = "SELECT Metingsinterval FROM tblMetingsintervalCO2 WHERE Serienummer = '" + serienummer + "';"
+        self.__cursor.execute(q)
+        result = self.__cursor.fetchone()
+        self.__connection.close()
+        return result
+
+    def metingsinterval_LTC(self, serienummer):
+        q = "SELECT Metingsinterval FROM tblMetingsintervalLTC WHERE Serienummer = '" + serienummer + "';"
+        self.__cursor.execute(q)
+        result = self.__cursor.fetchone()
+        self.__connection.close()
+        return result
+
+    def update_metingsinterval_CO2(self, serienummer, waarde):
+        q = "UPDATE tblMetingsintervalCO2 SET Metingsinterval = " + waarde + " WHERE Serienummer = '" + serienummer + "'"
+        self.__cursor.execute(q)
+        self.__connection.commit()
+        self.__connection.close()
+
+    def update_metingsinterval_LTC(self, serienummer, waarde):
+        q = "UPDATE tblMetingsintervalLTC SET Metingsinterval = " + waarde + " WHERE Serienummer = '" + serienummer + "'"
+        self.__cursor.execute(q)
+        self.__connection.commit()
+        self.__connection.close()
