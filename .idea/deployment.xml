@@ -5,7 +5,7 @@
       <paths name="PI">
         <serverdata>
           <mappings>
-            <mapping deploy="/home/pi/Documents/Website" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/home/pi/Website" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
